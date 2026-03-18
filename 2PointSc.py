@@ -1,6 +1,34 @@
 from pynput import mouse
 import mss
 import mss.tools
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QVBoxLayout
+from PySide6.QtGui import QPalette, QColor
+from PySide6.QtCore import Qt
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("2 Point")
+
+        container = QWidget()
+        self.setCentralWidget(container)
+
+        label = QLabel("2 Point")
+        label.setAlignment(Qt.AlignCenter)
+        self.setCentralWidget(label)
+
+app = QApplication()
+
+app.setStyle("Fusion")
+dark_palette = QPalette()
+dark_palette.setColor(QPalette.Window, QColor(54, 57, 62))
+app.setPalette(dark_palette)
+
+window = MainWindow()
+window.show()
+app.exec()
+
+
 
 #Getting Points
 points = []
